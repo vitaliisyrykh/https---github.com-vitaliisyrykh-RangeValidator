@@ -6,7 +6,7 @@ class RangeValidator{
     this._to = to;
   }
   set from(v){
-    if(v === 'number' && v < this._to){
+    if(typeof v === 'number' && v < this._to){
       return this._from = v;
     }
     throw new TypeError('please enter number ');
@@ -17,21 +17,23 @@ class RangeValidator{
   }
 
   set to(v){
-    if (v === 'number' && v > this._from){
+    if (typeof v === 'number' && v > this._from){
       return this._to = v;
     }
     throw new TypeError('please enter number or you number ');
   }
+  
   get to(){
     return this._to;
   }
 
   get range(){
-    const result = new Array();
-    result.push(this._from,this._to)
-    return result;
+    
+    return result.push(this._from,this._to);
+    
   }
-  get validate(number){
+  
+  validate(number){
     if(number >= this._from && number <= this._to){
       return number;
     }return new RangeError('your number is out of range')
