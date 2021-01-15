@@ -29,7 +29,7 @@ class RangeValidator{
 
   get range(){
     
-    return result.push(this._from,this._to);
+    return [this._from,this._to];
     
   }
   
